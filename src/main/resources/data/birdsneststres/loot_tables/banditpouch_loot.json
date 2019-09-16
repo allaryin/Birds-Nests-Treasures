@@ -1,0 +1,545 @@
+{
+  "type" : "minecraft:item",
+  "pools": [
+    {
+      "name": "banditpouch_loot",
+      "rolls": { "min":  1, "max":  5 },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:stick",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.25
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:feather",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.25
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:string",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.25
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:flint",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.10
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:leather",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.10
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:paper",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.15
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.05
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:book",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.10
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:writable_book",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.05
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:compass",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.025
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:clock",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.025
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:bamboo",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.25
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:name_tag",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.10
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:coal",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.25
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:charcoal",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.30
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_nugget",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 6
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.10
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:iron_nugget",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 6
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.15
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:redstone",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.05
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:glowstone_dust",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.025
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.025
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:emerald",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.035
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:wheat_seeds",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.125
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_seeds",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.05
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:pumpkin_seeds",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.05
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:beetroot_seeds",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.05
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:sweet_berries",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.15
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:shears",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.025
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:tripwire_hook",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.025
+            }
+          ]
+        },
+
+        {
+          "type": "item",
+          "name": "minecraft:flint_and_steel",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.050
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:clay_ball",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.15
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:glass_bottle",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.15
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:arrow",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.25
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:spectral_arrow",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.005
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:tipped_arrow",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.005
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
