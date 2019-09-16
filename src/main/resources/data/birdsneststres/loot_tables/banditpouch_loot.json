@@ -197,6 +197,13 @@
             {
               "condition": "random_chance",
               "chance": 0.25
+            },
+            {
+              "condition": "minecraft:location_check",
+              "predicate":
+              {
+                "biome": "minecraft:jungle"
+              }
             }
           ]
         },
@@ -536,6 +543,26 @@
             {
               "condition": "random_chance",
               "chance": 0.005
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "village",
+              "decoration": "red_x",
+              "zoom": 2,
+              "skip_existing_chunks": false,
+              "search_radius": 100
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.5
             }
           ]
         }
