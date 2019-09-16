@@ -878,7 +878,7 @@
         },
         {
           "type": "item",
-          "name": "minecraft:knowledge_book",
+          "name": "minecraft:phantom_membrane",
           "conditions": [
             {
               "condition": "random_chance",
@@ -888,15 +888,103 @@
         },
         {
           "type": "item",
-          "name": "minecraft:phantom_membrane",
+          "name": "minecraft:enchanted_book",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "enchantments": [
+                "minecraft:fire_protection",
+                "minecraft:feather_falling",
+                "minecraft:blast_protection",
+                "minecraft:projectile_protection",
+                "minecraft:respiration",
+                "minecraft:aqua_affinity",
+                "minecraft:thorns",
+                "minecraft:depth_strider",
+                "minecraft:frost_walker",
+                "minecraft:binding_curse",
+                "minecraft:sharpness",
+                "minecraft:smite",
+                "minecraft:bane_of_arthropods",
+                "minecraft:knockback",
+                "minecraft:fire_aspect",
+                "minecraft:looting",
+                "minecraft:sweeping",
+                "minecraft:efficiency",
+                "minecraft:silk_touch",
+                "minecraft:unbreaking",
+                "minecraft:fortune",
+                "minecraft:power",
+                "minecraft:punch",
+                "minecraft:flame",
+                "minecraft:infinity",
+                "minecraft:luck_of_the_sea",
+                "minecraft:lure",
+                "minecraft:loyalty",
+                "minecraft:impaling",
+                "minecraft:riptide",
+                "minecraft:channeling",
+                "minecraft:multishot",
+                "minecraft:quick_charge",
+                "minecraft:piercing",
+                "minecraft:mending",
+                "minecraft:vanishing_curse"
+              ]
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ],
           "conditions": [
             {
               "condition": "random_chance",
-              "chance": 0.005
+              "chance": 0.003
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "buried_treasure",
+              "decoration": "red_x",
+              "zoom": 2,
+              "skip_existing_chunks": false
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.03
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "village",
+              "decoration": "red_x",
+              "zoom": 2,
+              "skip_existing_chunks": false,
+              "search_radius": 100
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.5
             }
           ]
         }
-
       ]
     }
   ]

@@ -1,27 +1,15 @@
-modLoader="javafml" #mandatory
-loaderVersion="[28]" #mandatory. 26 for 1.14.2, 27 for 1.14.3
-# issueTrackerURL="http://my.issue.tracker/" #optional
+modLoader="javafml"
+loaderVersion="[28,)"
+issueTrackerURL="https://github.com/FizixInt/Birds-Nests-Treasures"
 
-[[mods]] #mandatory
+[[mods]]
 modId="birdsneststres"
 version="1.0.0"
 displayName="Birds Nests & Treasures"
-
-# A URL to query for updates for this mod. See the JSON update specification <here>
-# updateJSONURL="http://myurl.me/" #optional
-
-# A URL for the "homepage" for this mod, displayed in the mod UI
-# displayURL="http://example.com/" #optional
-
-# A file name (in the root of the mod JAR) containing a logo for display
-# logoFile="examplemod.png" #optional
-
-# A text field displayed in the mod UI
-credits="FIZIX" #optional
-
-# A text field displayed in the mod UI
-authors="FIZIX" #optional
-
+# updateJSONURL="http://myurl.me/"
+displayURL="https://github.com/FizixInt/Birds-Nests-Treasures"
+# logoFile="examplemod.png"
+authors="FIZIX"
 
 description='''
 Birds Nests & Treasures is a random treasure mod inspired by and that expands upon the "Birds Nests" Mod by Clever Panda.
@@ -30,3 +18,4 @@ Birds Nests & Treasures adds a number of collectable treasures to the world that
 Pouches, Sunken Treasure Bottles and Ancient Treasures. If you find any of these items, simply right click while holding to open them and contain the
 treasures within.
 '''
+

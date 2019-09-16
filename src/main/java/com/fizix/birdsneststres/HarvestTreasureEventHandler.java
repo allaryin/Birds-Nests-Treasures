@@ -136,7 +136,7 @@ public class HarvestTreasureEventHandler
             isActive = true;
         }
 
-        if(dropType == "bandit_pouch" && isEnabled == true && (inBlock.isIn(BlockTags.SAND) || inRegistry == "minecraft:snow_block" || inRegistry == "minecraft:grass" || inRegistry == "minecraft:tall_grass"))
+        if(dropType == "bandit_pouch" && isEnabled == true && (inBlock.isIn(BlockTags.SAND) || inRegistry == "minecraft:snow_block" || inRegistry == "minecraft:grass" || inRegistry == "minecraft:tall_grass" || inRegistry == "biomesoplenty:bush"))
         {
             isActive = true;
         }
@@ -154,7 +154,14 @@ public class HarvestTreasureEventHandler
                         inBiome == "biome.minecraft.snowy_mountains" ||
                         inBiome == "biome.minecraft.frozen_ocean" ||
                         inBiome == "biome.minecraft.frozen_river" ||
-                        inBiome == "biome.minecraft.deep_frozen_ocean"
+                        inBiome == "biome.minecraft.deep_frozen_ocean" ||
+                        inBiome == "biome.biomesoplenty.alps" ||
+                        inBiome == "biome.biomesoplenty.cold_desert" ||
+                        inBiome == "biome.biomesoplenty.snowy_coniferous_forest" ||
+                        inBiome == "biome.biomesoplenty.snowy_fir_clearing" ||
+                        inBiome == "biome.biomesoplenty.snowy_forest" ||
+                        inBiome == "biome.biomesoplenty.alps_foothills" ||
+                        inBiome == "biome.biomesoplenty.tundra"
                 )
                 {
                     isActive = true;
@@ -165,7 +172,11 @@ public class HarvestTreasureEventHandler
                 if(     inBiome == "biome.minecraft.desert" ||
                         inBiome == "biome.minecraft.desert_hills" ||
                         inBiome == "biome.minecraft.desert_lakes" ||
-                        inBiome == "biome.minecraft.desert_lakes"
+                        inBiome == "biome.minecraft.desert_lakes" ||
+                        inBiome == "biome.biomesoplenty.cold_desert" ||
+                        inBiome == "biome.biomesoplenty.oasis" ||
+                        inBiome == "biome.biomesoplenty.outback" ||
+                        inBiome == "biome.biomesoplenty.dead_reef"
                 )
                 {
                     isActive = true;
@@ -191,7 +202,8 @@ public class HarvestTreasureEventHandler
                     inBiome == "biome.minecraft.deep_warm_ocean" ||
                     inBiome == "biome.minecraft.deep_lukewarm_ocean" ||
                     inBiome == "biome.minecraft.deep_cold_ocean" ||
-                    inBiome == "biome.minecraft.deep_frozen_ocean"
+                    inBiome == "biome.minecraft.deep_frozen_ocean" ||
+                    inBiome == "biome.biomesoplenty.dead_reef"
             )
             {
                 if (inBlock.isIn(BlockTags.SAND))
@@ -216,6 +228,36 @@ public class HarvestTreasureEventHandler
     {
         int rarity = Config.NEST_DROP_RARITY_NORMAL.get();
 
+        if(     thisBiome == "biome.minecraft.forest" ||
+                thisBiome == "biome.minecraft.jungle" ||
+                thisBiome == "biome.minecraft.birch_forest" ||
+                thisBiome == "biome.minecraft.dark_forest" ||
+                thisBiome == "biome.minecraft.giant_tree_taiga" ||
+                thisBiome == "biome.minecraft.modified_jungle" ||
+                thisBiome == "biome.minecraft.tall_birch_forest" ||
+                thisBiome == "biome.minecraft.giant_spruce_taiga" ||
+                thisBiome == "biome.minecraft.bamboo_jungle" ||
+                thisBiome == "biome.biomesoplenty.cherry_blossom_grove" ||
+                thisBiome == "biome.biomesoplenty.coniferous_forest" ||
+                thisBiome == "biome.biomesoplenty.dead_forest" ||
+                thisBiome == "biome.biomesoplenty.grove" ||
+                thisBiome == "biome.biomesoplenty.maple_woods" ||
+                thisBiome == "biome.biomesoplenty.mystic_grove" ||
+                thisBiome == "biome.biomesoplenty.ominous_woods" ||
+                thisBiome == "biome.biomesoplenty.rainforest" ||
+                thisBiome == "biome.biomesoplenty.redwood_forest" ||
+                thisBiome == "biome.biomesoplenty.seasonal_forest" ||
+                thisBiome == "biome.biomesoplenty.snowy_coniferous_forest" ||
+                thisBiome == "biome.biomesoplenty.snowy_forest" ||
+                thisBiome == "biome.biomesoplenty.temperate_rainforest" ||
+                thisBiome == "biome.biomesoplenty.tropical_rainforest" ||
+                thisBiome == "biome.biomesoplenty.woodland" ||
+                thisBiome == "biome.biomesoplenty.ethereal_forest"
+
+        )
+        {
+            rarity = Config.NEST_DROP_RARITY_HIGH.get();
+        }
         return rarity;
     }
     // ---------------------------------------------------------------------------------------------------------------------------
@@ -231,7 +273,7 @@ public class HarvestTreasureEventHandler
     {
         int rarity = Config.BANDIT_POUCH_DROP_RARITY_NORMAL.get();
 
-        if(thisRegistry == "minecraft:grass" || thisRegistry == "minecraft:tall_grass")
+        if(thisRegistry == "minecraft:grass" || thisRegistry == "minecraft:tall_grass" || thisRegistry == "biomesoplenty:bush")
         {
             rarity = Config.BANDIT_POUCH_DROP_RARITY_LOW.get();
         }
@@ -289,8 +331,10 @@ public class HarvestTreasureEventHandler
             }
         }
 
-
-
+        if(thisblock.isIn(BlockTags.CORAL_BLOCKS))
+        {
+            rarity = Config.SUNKEN_TREASURE_DROP_RARITY_HIGH.get();
+        }
 
         return rarity;
     }
@@ -313,10 +357,10 @@ public class HarvestTreasureEventHandler
         double d1 = random.nextFloat() * 0.5D +0.25D;
         double d2 = random.nextFloat() * 0.5D +0.25D;
 
-        LOGGER.debug("This Rarity: " + thisRarity);
+
 
         int randRarity = random.nextInt(thisRarity);
-        LOGGER.debug("Generated: " + randRarity);
+
         if(randRarity == 0)
         {
             ItemEntity entityitem = new ItemEntity((ServerWorld) thisEvent.getWorld(), thisPos.getX() + d0, thisPos.getY() + d1, thisPos.getZ() + d2, thisStack);

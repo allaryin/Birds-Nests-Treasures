@@ -51,14 +51,34 @@
               "function": "minecraft:exploration_map",
               "destination": "buried_treasure",
               "decoration": "red_x",
-              "zoom": 1,
+              "zoom": 2,
               "skip_existing_chunks": false
             }
           ],
           "conditions": [
             {
               "condition": "random_chance",
-              "chance": 0.15
+              "chance": 0.05
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "village",
+              "decoration": "red_x",
+              "zoom": 2,
+              "skip_existing_chunks": false,
+              "search_radius": 100
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.5
             }
           ]
         },
