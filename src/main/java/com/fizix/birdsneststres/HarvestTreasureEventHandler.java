@@ -1,5 +1,6 @@
 package com.fizix.birdsneststres;
 
+
 import com.fizix.birdsneststres.setup.ItemListManager;
 import net.minecraft.block.Block;
 
@@ -87,9 +88,9 @@ public class HarvestTreasureEventHandler
         // Nest Drops
         if(dropNest == true)
         {
-           rarityToUse = this.getNestDropRarity(theblock, blockRegistryName, blockBiomeName);
+            rarityToUse = this.getNestDropRarity(theblock, blockRegistryName, blockBiomeName);
 
-           this.spawnDrop(new ItemStack(ItemListManager.BIRDSNEST,1), event, pos, rarityToUse);
+            this.spawnDrop(new ItemStack(ItemListManager.BIRDSNEST,1), event, pos, rarityToUse);
         }
 
 
