@@ -1,7 +1,6 @@
 package com.fizix.birdsneststres.items;
 
 
-
 import com.fizix.birdsneststres.BirdsNestsTres;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -45,7 +44,7 @@ public class AncientTreasureItem extends Item
         // Ideally check whether we are in creative or survival
         itemstack.shrink(1);
 
-        worldIn.playSound((PlayerEntity)null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.BLOCK_GRASS_BREAK, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+        worldIn.playSound((PlayerEntity)null, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(), SoundEvents.BLOCK_GRASS_BREAK, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
         if (!worldIn.isRemote)
         {
@@ -74,7 +73,7 @@ public class AncientTreasureItem extends Item
 
             for (ItemStack itemstack : itemstacklist)
             {
-                ItemEntity entityitem = new ItemEntity(world, player.posX, player.posY + 1.5D, player.posZ, itemstack);
+                ItemEntity entityitem = new ItemEntity(world, player.getPosX(), player.getPosY() + 1.5D, player.getPosZ(), itemstack);
                 world.addEntity(entityitem);
             }
         }
