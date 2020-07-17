@@ -1,14 +1,17 @@
-modLoader="javafml"
-loaderVersion="[28,)"
+modLoader="javafml" #mandatory
+loaderVersion="[31,)"
 issueTrackerURL="https://github.com/FizixInt/Birds-Nests-Treasures"
 
+
 [[mods]]
+
 modId="birdsneststres"
-version="1.0.0"
+version="1.0.1"
 displayName="Birds Nests & Treasures"
 # updateJSONURL="http://myurl.me/"
 displayURL="https://github.com/FizixInt/Birds-Nests-Treasures"
 # logoFile="examplemod.png"
+credits="FIZIX"
 authors="FIZIX"
 
 description='''
@@ -18,4 +21,20 @@ Birds Nests & Treasures adds a number of collectable treasures to the world that
 Pouches, Sunken Treasure Bottles and Ancient Treasures. If you find any of these items, simply right click while holding to open them and contain the
 treasures within.
 '''
+
+
+# Dependencies
+[[dependencies.birdsneststres]]
+    modId="forge"
+    mandatory=true
+    versionRange="[31,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.birdsneststres]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
+    ordering="NONE"
+    side="BOTH"
 
