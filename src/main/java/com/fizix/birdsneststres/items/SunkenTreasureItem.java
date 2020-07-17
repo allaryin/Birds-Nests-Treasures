@@ -7,10 +7,12 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.storage.loot.*;
+//import net.minecraft.world.storage.loot.*;
 import net.minecraftforge.fml.server.ServerLifecycleHooks;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -55,16 +57,18 @@ public class SunkenTreasureItem extends Item
 
 
 
-    private void generateLoot(World world,PlayerEntity player)
+    private void generateLoot(World world, PlayerEntity player)
     {
         if (LOOT_TABLE == LootTables.EMPTY)
         {
         }
         else
         {
+            BlockPos playerPos = new BlockPos(player.getPosX(), player.getPosY(), player.getPosZ());
+
             LootTable loottable = ServerLifecycleHooks.getCurrentServer().getLootTableManager().getLootTableFromLocation(LOOT_TABLE);
             LootContext.Builder builder = new LootContext.Builder((ServerWorld) world);
-            LootContext lootcontext = builder.withParameter(LootParameters.POSITION, player.getPosition()).withParameter(LootParameters.THIS_ENTITY, player).build(LootParameterSets.GIFT);
+            LootContext lootcontext = builder.withParameter(LootParameters.POSITION, playerPos).withParameter(LootParameters.THIS_ENTITY, player).build(LootParameterSets.GIFT);
 
             List<ItemStack> itemstacklist = loottable.generate(lootcontext);
 
