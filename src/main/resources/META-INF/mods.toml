@@ -1,6 +1,7 @@
-modLoader="javafml" #mandatory
-loaderVersion="[31,)"
-issueTrackerURL="https://github.com/FizixInt/Birds-Nests-Treasures"
+
+modLoader="javafml"
+loaderVersion="[32,)"
+issueTrackerURL="http://my.issue.tracker/"
 
 
 [[mods]]
@@ -22,19 +23,19 @@ Pouches, Sunken Treasure Bottles and Ancient Treasures. If you find any of these
 treasures within.
 '''
 
-
 # Dependencies
 [[dependencies.birdsneststres]]
     modId="forge"
     mandatory=true
-    versionRange="[31,)"
+    versionRange="[32,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.birdsneststres]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15.2]"
+    versionRange="[1.16.1]"
     ordering="NONE"
     side="BOTH"
+
 
