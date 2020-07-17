@@ -2,7 +2,7 @@
 <p align="center"><img src="https://gocms.fizixstudios.com/mcm/banner.jpg" width="600" /></p>
 
 
-Bird's Nests & Treasures [BNT] is a random treasure mod for Minecraft 1.14.4, inspired by [CleverPanda's Birds Nest Mod](https://www.curseforge.com/minecraft/mc-mods/birds-nests). 
+Bird's Nests & Treasures [BNT] is a random treasure mod for Minecraft 1.14.4, 1.15.2 and 1.16.1 inspired by [CleverPanda's Birds Nest Mod](https://www.curseforge.com/minecraft/mc-mods/birds-nests). 
 
 BNT adds a number of collectable treasures to the world that can be found while exploring. 
 
@@ -69,5 +69,9 @@ Rarity followers a 1 in _x_ chance format. Therefore, if the rarity is set to "5
 ---
 
 
+### Minecraft 1.16.x
+Support for Minecraft 1.16.1 has been added and while working, due to Forge being in Beta and will remain in BETA until Forge has been fully updated for 1.16.1. 
+
 ### Minecraft 1.14.2 and 1.14.3
 Support for Minecraft 1.14.2 and 1.14.3 might be added later.
+
