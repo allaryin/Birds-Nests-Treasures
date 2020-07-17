@@ -72,6 +72,4 @@ Rarity followers a 1 in _x_ chance format. Therefore, if the rarity is set to "5
 ### Minecraft 1.16.x
 Support for Minecraft 1.16.1 has been added and while working, due to Forge being in Beta and will remain in BETA until Forge has been fully updated for 1.16.1. 
 
-### Minecraft 1.14.2 and 1.14.3
-Support for Minecraft 1.14.2 and 1.14.3 might be added later.
 
