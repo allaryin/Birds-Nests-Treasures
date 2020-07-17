@@ -1,7 +1,6 @@
 package com.fizix.birdsneststres.setup;
 
 
-
 import com.fizix.birdsneststres.BirdsNestsTres;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
