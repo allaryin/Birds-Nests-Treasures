@@ -20,7 +20,7 @@ public class DecayLeafEventHandler
     private static final Logger LOGGER = LogManager.getLogger();
 
     @SubscribeEvent
-    public void onDrops(BlockEvent.HarvestDropsEvent event)
+    public void onDrops(BlockEvent.BreakEvent event)
     {
         Block theblock = event.getState().getBlock();
         Random random = new Random();

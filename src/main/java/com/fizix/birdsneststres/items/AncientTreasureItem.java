@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.loot.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 //import net.minecraft.world.storage.loot.*;
@@ -64,11 +65,11 @@ public class AncientTreasureItem extends Item
         }
         else
         {
-            BlockPos playerPos = new BlockPos(player.getPosX(), player.getPosY(), player.getPosZ());
+            Vector3d playerPos = new Vector3d(player.getPosX(), player.getPosY(), player.getPosZ());
 
             LootTable loottable = ServerLifecycleHooks.getCurrentServer().getLootTableManager().getLootTableFromLocation(LOOT_TABLE);
             LootContext.Builder builder = new LootContext.Builder((ServerWorld) world);
-            LootContext lootcontext = builder.withParameter(LootParameters.POSITION, playerPos).withParameter(LootParameters.THIS_ENTITY, player).build(LootParameterSets.GIFT);
+            LootContext lootcontext = builder.withParameter(LootParameters.field_237457_g_, playerPos).withParameter(LootParameters.THIS_ENTITY, player).build(LootParameterSets.GIFT);
 
             List<ItemStack> itemstacklist = loottable.generate(lootcontext);
 

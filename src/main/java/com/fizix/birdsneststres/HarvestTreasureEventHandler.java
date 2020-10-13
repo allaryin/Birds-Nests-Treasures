@@ -9,7 +9,11 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.ItemStack;
 
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeRegistry;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -71,9 +75,23 @@ public class HarvestTreasureEventHandler
 
         // Get additional block details so we can examine it in more closely
         blockRegistryName = theblock.getRegistryName().toString();
-        blockBiomeName = event.getWorld().getBiome(pos).getTranslationKey();
+        
+        /* Seriously... *sigh* - we're just looking up the biome's name here... :(
+         *
+         * The old way used the translationKey, which is no longer defined on Biome (and which is a different format
+         * besides). We cannot ask the biome for its registryName either because (at least in the case of vanilla
+         * biomes), that is not set either.
+         *
+         * So... we dive deep, using the same logic that the F3 screen does to display biome keys, but more paranoid.
+         */
+        final Biome blockBiome = event.getWorld().getBiome(pos);
+        final ResourceLocation biomeKey = event.getWorld().func_241828_r().func_243612_b(Registry.field_239720_u_).getKey(blockBiome);
+        if (biomeKey != null) {
+            blockBiomeName = biomeKey.toString();
+        }
 
-
+        // TODO: rewrite all of this logic as it is needlessly repetitive, especially for something that calls every
+        //       time a player breaks a block.
 
         // Discover the drop type
         dropNest = this.dropDiscovery("nest", theblock,  blockRegistryName, blockBiomeName, Config.NEST_ENABLED.get());
@@ -132,6 +150,8 @@ public class HarvestTreasureEventHandler
     {
         Boolean isActive = false;
 
+        // TODO: It is always incorrect to use == to compare Strings.
+
         if(dropType == "nest" && isEnabled == true && inBlock.isIn(BlockTags.LEAVES))
         {
             isActive = true;
@@ -151,18 +171,18 @@ public class HarvestTreasureEventHandler
 
             if(inRegistry == "minecraft:snow_block")
             {
-                if (    inBiome == "biome.minecraft.snowy_tundra" ||
-                        inBiome == "biome.minecraft.snowy_mountains" ||
-                        inBiome == "biome.minecraft.frozen_ocean" ||
-                        inBiome == "biome.minecraft.frozen_river" ||
-                        inBiome == "biome.minecraft.deep_frozen_ocean" ||
-                        inBiome == "biome.biomesoplenty.alps" ||
-                        inBiome == "biome.biomesoplenty.cold_desert" ||
-                        inBiome == "biome.biomesoplenty.snowy_coniferous_forest" ||
-                        inBiome == "biome.biomesoplenty.snowy_fir_clearing" ||
-                        inBiome == "biome.biomesoplenty.snowy_forest" ||
-                        inBiome == "biome.biomesoplenty.alps_foothills" ||
-                        inBiome == "biome.biomesoplenty.tundra"
+                if (    inBiome == "minecraft:snowy_tundra" ||
+                        inBiome == "minecraft:snowy_mountains" ||
+                        inBiome == "minecraft:frozen_ocean" ||
+                        inBiome == "minecraft:frozen_river" ||
+                        inBiome == "minecraft:deep_frozen_ocean" ||
+                        inBiome == "biomesoplenty:alps" ||
+                        inBiome == "biomesoplenty:cold_desert" ||
+                        inBiome == "biomesoplenty:snowy_coniferous_forest" ||
+                        inBiome == "biomesoplenty:snowy_fir_clearing" ||
+                        inBiome == "biomesoplenty:snowy_forest" ||
+                        inBiome == "biomesoplenty:alps_foothills" ||
+                        inBiome == "biomesoplenty:tundra"
                 )
                 {
                     isActive = true;
@@ -170,14 +190,14 @@ public class HarvestTreasureEventHandler
             }
             if(inBlock.isIn(BlockTags.SAND))
             {
-                if(     inBiome == "biome.minecraft.desert" ||
-                        inBiome == "biome.minecraft.desert_hills" ||
-                        inBiome == "biome.minecraft.desert_lakes" ||
-                        inBiome == "biome.minecraft.desert_lakes" ||
-                        inBiome == "biome.biomesoplenty.cold_desert" ||
-                        inBiome == "biome.biomesoplenty.oasis" ||
-                        inBiome == "biome.biomesoplenty.outback" ||
-                        inBiome == "biome.biomesoplenty.dead_reef"
+                if(     inBiome == "minecraft:desert" ||
+                        inBiome == "minecraft:desert_hills" ||
+                        inBiome == "minecraft:desert_lakes" ||
+                        inBiome == "minecraft:desert_lakes" ||
+                        inBiome == "biomesoplenty:cold_desert" ||
+                        inBiome == "biomesoplenty:oasis" ||
+                        inBiome == "biomesoplenty:outback" ||
+                        inBiome == "biomesoplenty:dead_reef"
                 )
                 {
                     isActive = true;
@@ -193,18 +213,18 @@ public class HarvestTreasureEventHandler
                 isActive = true;
             }
 
-            if(     inBiome == "biome.minecraft.frozen_ocean" ||
-                    inBiome == "biome.minecraft.beach" ||
-                    inBiome == "biome.minecraft.deep_ocean" ||
-                    inBiome == "biome.minecraft.snowy_beach" ||
-                    inBiome == "biome.minecraft.warm_ocean" ||
-                    inBiome == "biome.minecraft.lukewarm_ocean" ||
-                    inBiome == "biome.minecraft.cold_ocean" ||
-                    inBiome == "biome.minecraft.deep_warm_ocean" ||
-                    inBiome == "biome.minecraft.deep_lukewarm_ocean" ||
-                    inBiome == "biome.minecraft.deep_cold_ocean" ||
-                    inBiome == "biome.minecraft.deep_frozen_ocean" ||
-                    inBiome == "biome.biomesoplenty.dead_reef"
+            if(     inBiome == "minecraft:frozen_ocean" ||
+                    inBiome == "minecraft:beach" ||
+                    inBiome == "minecraft:deep_ocean" ||
+                    inBiome == "minecraft:snowy_beach" ||
+                    inBiome == "minecraft:warm_ocean" ||
+                    inBiome == "minecraft:lukewarm_ocean" ||
+                    inBiome == "minecraft:cold_ocean" ||
+                    inBiome == "minecraft:deep_warm_ocean" ||
+                    inBiome == "minecraft:deep_lukewarm_ocean" ||
+                    inBiome == "minecraft:deep_cold_ocean" ||
+                    inBiome == "minecraft:deep_frozen_ocean" ||
+                    inBiome == "biomesoplenty:dead_reef"
             )
             {
                 if (inBlock.isIn(BlockTags.SAND))
@@ -229,31 +249,31 @@ public class HarvestTreasureEventHandler
     {
         int rarity = Config.NEST_DROP_RARITY_NORMAL.get();
 
-        if(     thisBiome == "biome.minecraft.forest" ||
-                thisBiome == "biome.minecraft.jungle" ||
-                thisBiome == "biome.minecraft.birch_forest" ||
-                thisBiome == "biome.minecraft.dark_forest" ||
-                thisBiome == "biome.minecraft.giant_tree_taiga" ||
-                thisBiome == "biome.minecraft.modified_jungle" ||
-                thisBiome == "biome.minecraft.tall_birch_forest" ||
-                thisBiome == "biome.minecraft.giant_spruce_taiga" ||
-                thisBiome == "biome.minecraft.bamboo_jungle" ||
-                thisBiome == "biome.biomesoplenty.cherry_blossom_grove" ||
-                thisBiome == "biome.biomesoplenty.coniferous_forest" ||
-                thisBiome == "biome.biomesoplenty.dead_forest" ||
-                thisBiome == "biome.biomesoplenty.grove" ||
-                thisBiome == "biome.biomesoplenty.maple_woods" ||
-                thisBiome == "biome.biomesoplenty.mystic_grove" ||
-                thisBiome == "biome.biomesoplenty.ominous_woods" ||
-                thisBiome == "biome.biomesoplenty.rainforest" ||
-                thisBiome == "biome.biomesoplenty.redwood_forest" ||
-                thisBiome == "biome.biomesoplenty.seasonal_forest" ||
-                thisBiome == "biome.biomesoplenty.snowy_coniferous_forest" ||
-                thisBiome == "biome.biomesoplenty.snowy_forest" ||
-                thisBiome == "biome.biomesoplenty.temperate_rainforest" ||
-                thisBiome == "biome.biomesoplenty.tropical_rainforest" ||
-                thisBiome == "biome.biomesoplenty.woodland" ||
-                thisBiome == "biome.biomesoplenty.ethereal_forest"
+        if(     thisBiome == "minecraft:forest" ||
+                thisBiome == "minecraft:jungle" ||
+                thisBiome == "minecraft:birch_forest" ||
+                thisBiome == "minecraft:dark_forest" ||
+                thisBiome == "minecraft:giant_tree_taiga" ||
+                thisBiome == "minecraft:modified_jungle" ||
+                thisBiome == "minecraft:tall_birch_forest" ||
+                thisBiome == "minecraft:giant_spruce_taiga" ||
+                thisBiome == "minecraft:bamboo_jungle" ||
+                thisBiome == "biomesoplenty:cherry_blossom_grove" ||
+                thisBiome == "biomesoplenty:coniferous_forest" ||
+                thisBiome == "biomesoplenty:dead_forest" ||
+                thisBiome == "biomesoplenty:grove" ||
+                thisBiome == "biomesoplenty:maple_woods" ||
+                thisBiome == "biomesoplenty:mystic_grove" ||
+                thisBiome == "biomesoplenty:ominous_woods" ||
+                thisBiome == "biomesoplenty:rainforest" ||
+                thisBiome == "biomesoplenty:redwood_forest" ||
+                thisBiome == "biomesoplenty:seasonal_forest" ||
+                thisBiome == "biomesoplenty:snowy_coniferous_forest" ||
+                thisBiome == "biomesoplenty:snowy_forest" ||
+                thisBiome == "biomesoplenty:temperate_rainforest" ||
+                thisBiome == "biomesoplenty:tropical_rainforest" ||
+                thisBiome == "biomesoplenty:woodland" ||
+                thisBiome == "biomesoplenty:ethereal_forest"
 
         )
         {
